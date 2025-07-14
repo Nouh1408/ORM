@@ -1,8 +1,5 @@
 import { Sequelize } from "sequelize"; //pascal case --> classes
-const sequelize = new Sequelize("blog", "root", "", {
-  dialect: "mysql",
-  host: "127.0.0.1",
-});
+const sequelize = new Sequelize("mysql://uj5iiazm007fwrb5:Up7gtu96TspjInFyzBMm@bfwxcgtuzrzftlx4ai7o-mysql.services.clever-cloud.com:3306/bfwxcgtuzrzftlx4ai7o");
 sequelize
   .authenticate()
   .then(()=>{
