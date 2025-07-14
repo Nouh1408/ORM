@@ -4,7 +4,7 @@ function connectDB(){
   sequelize
   .authenticate()
   .then(()=>{
-    console.log("db connection to db");
+    console.log("db connected success to db");
     
   })
   .catch((err) => {
