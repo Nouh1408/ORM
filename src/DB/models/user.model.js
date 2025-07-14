@@ -1,6 +1,6 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../connection.js";
-const User = sequelize.define("User",{
+export const User = sequelize.define("User",{
    /*  id:{
         type: DataTypes.INTEGER,
         allowNull:false,
