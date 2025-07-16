@@ -9,7 +9,11 @@ export const register = async (req,res,next)=>{
     if(userExist){
         throw new Error("user already exist",{cause:409})
     }
-   const createdUser = await User.create({name, email, password, dob})
+    
+    const user= User.build({fullname:name, email,password,dob }) //builds a new instance solves a problem called dependency injection + SOLID
+    const createdUser = await user.save()
+   
+  //  const createdUser = await User.create({name, email, password, dob})
    return res.status(201).json({message:"user created successfully", success:true, data:createdUser})
    } catch(error){
     return res.status(error.cause || 500).json({message:error.message, success:true})
