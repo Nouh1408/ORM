@@ -6,11 +6,14 @@ export const register = async (req,res,next)=>{
      console.log({name, email, password, dob});
      
     const userExist = await User.findOne({where:{email}}) //{if found} | null
+    console.log('====================================');
+    console.log(userExist);
+    console.log('====================================');
     if(userExist){
         throw new Error("user already exist",{cause:409})
     }
     
-    const user= User.build({fullname:name, email,password,dob }) //builds a new instance solves a problem called dependency injection + SOLID
+    const user= User.build({name, email,password,dob }) //builds a new instance solves a problem called dependency injection + SOLID
     const createdUser = await user.save()
    
   //  const createdUser = await User.create({name, email, password, dob})
